@@ -5,17 +5,12 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.manu.pokedoke.model.Pokemon
-import com.manu.pokedoke.model.PokemonInfo
-import com.manu.pokedoke.model.PokemonResponse
 import com.manu.pokedoke.network.IPokemonService
 import com.manu.pokedoke.persistence.PokemonDao
 import com.manu.pokedoke.viewstate.Error
 import com.manu.pokedoke.viewstate.Loading
 import com.manu.pokedoke.viewstate.Success
 import com.manu.pokedoke.viewstate.ViewState
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.lang.Exception
 
 class MainRepository(
@@ -54,7 +49,7 @@ class MainRepository(
                     null
                 }
             } catch (e: Exception) {
-                Log.e(TAG, e.message)
+                e.message?.let { Log.e(TAG, it) }
                 null
             }
         }

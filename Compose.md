@@ -1,4 +1,8 @@
 APK inicial:
 
-5.1 MB
+5.9 MB
+
+Libs de Compose:
+
+
 

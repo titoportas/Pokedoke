@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
 import com.bumptech.glide.Glide
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
 import com.manu.pokedoke.R
 import com.manu.pokedoke.model.Pokemon
 import com.manu.pokedoke.view.ui.detail.DetailActivity
+import com.manu.pokedoke.view.ui.detail.PokemonDetailActivity
 import com.manu.pokedoke.view.ui.main.MainActivity
 import kotlinx.android.synthetic.main.item_pokemon_list.view.*
 
@@ -57,7 +57,7 @@ class PokemonListAdapter(private val mainActivity: MainActivity) : RecyclerView.
                 .makeSceneTransitionAnimation(mainActivity,
                     pokemonViewHolder.itemView.findViewById<ImageView>(R.id.pokemon_image_view), "transition_pokemon")
 
-            val intent = Intent(mainActivity, DetailActivity::class.java)
+            val intent = Intent(mainActivity, PokemonDetailActivity::class.java)
             intent.putExtra(DetailActivity.ARG_POKEMON_NAME, listOfPokemons[position].name)
             intent.putExtra(DetailActivity.ARG_POKEMON_IMAGE_URL, listOfPokemons[position].getImageUrl())
 
