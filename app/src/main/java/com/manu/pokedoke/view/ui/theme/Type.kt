@@ -1,4 +1,4 @@
-package com.manu.pokedoke.view.ui.detail.ui.theme
+package com.manu.pokedoke.view.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

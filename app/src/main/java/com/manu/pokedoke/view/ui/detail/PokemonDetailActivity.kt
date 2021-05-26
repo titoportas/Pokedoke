@@ -22,7 +22,6 @@ import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.LinearGradientShader
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
@@ -32,19 +31,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.accompanist.coil.rememberCoilPainter
-import com.google.accompanist.imageloading.ImageLoadState
-import com.google.accompanist.imageloading.isFinalState
 import com.manu.pokedoke.R
 import com.manu.pokedoke.extensions.getTypeColor
 import com.manu.pokedoke.model.PokemonInfo
-import com.manu.pokedoke.view.ui.detail.ui.theme.PokeDokeTheme
+import com.manu.pokedoke.view.ui.theme.PokeDokeTheme
 import com.manu.pokedoke.viewmodels.DetailActivityViewModel
 import com.manu.pokedoke.viewmodels.DetailActivityViewModelFactory
 import com.manu.pokedoke.viewstate.Error
 import com.manu.pokedoke.viewstate.Loading
 import com.manu.pokedoke.viewstate.Success
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.filter
 
 class PokemonDetailActivity : ComponentActivity() {
 
@@ -52,7 +47,6 @@ class PokemonDetailActivity : ComponentActivity() {
     private val viewModel: DetailActivityViewModel by viewModels {
         viewmodelFactory
     }
-
     companion object {
         const val ARG_POKEMON_NAME = "pokemon_name"
         const val ARG_POKEMON_IMAGE_URL = "pokemon_image_url"

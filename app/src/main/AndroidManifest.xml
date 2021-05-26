@@ -16,16 +16,13 @@
             android:exported="true"
             android:label="@string/title_activity_pokemon_detail"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view.ui.main.MainActivity">
+        <activity android:name=".view.ui.main.PokemonMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".view.ui.detail.DetailActivity"
-            android:parentActivityName=".view.ui.main.MainActivity" />
     </application>
 
 </manifest>
