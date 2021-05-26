@@ -24,7 +24,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -52,14 +52,12 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
-    implementation "androidx.core:core-ktx:$versions.androidxKtx"
+    implementation "androidx.palette:palette-ktx:$versions.androidxPaletteKtx"
     implementation "androidx.appcompat:appcompat:$versions.androidxAppcompat"
-    implementation "androidx.constraintlayout:constraintlayout:$versions.constraintLayout"
-    implementation "com.google.android.material:material:$versions.material"
 
     // compose
     implementation "androidx.compose.ui:ui:$versions.compose"
-    // Tooling support (Previews, etc.)
+    // Tooling support (Previews, ºetc.)
     implementation "androidx.compose.ui:ui-tooling:$versions.compose"
     // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
     implementation "androidx.compose.foundation:foundation:$versions.compose"
@@ -71,10 +69,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$versions.composeViewmodel"
     // Integration with observables
     implementation "androidx.compose.runtime:runtime-livedata:$versions.compose"
-
-    //navigation component
-    implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
-    implementation "androidx.navigation:navigation-ui-ktx:$versions.navigation"
 
     //retrofit for network calls
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
@@ -96,17 +90,6 @@ dependencies {
     implementation "androidx.room:room-ktx:$versions.room"
     // Test helpers
     testImplementation "androidx.room:room-testing:$versions.room"
-
-    //ProgressView
-    implementation "com.github.skydoves:progressview:$versions.progressview"
-
-    //Transformation Layout
-    implementation "com.github.skydoves:transformationlayout:$versions.transformationlayout"
-
-    // Glide
-    implementation "com.github.bumptech.glide:glide:$versions.glide"
-    implementation "com.github.florent37:glidepalette:$versions.glidePalette"
-    kapt "com.github.bumptech.glide:compiler:$versions.glide"
 
     //espresso setup
     androidTestImplementation "com.android.support.test:runner:$versions.androidTestRunner"

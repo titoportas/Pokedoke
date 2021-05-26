@@ -300,7 +300,13 @@ fun ErrorView(viewState: Error) {
 
 @Composable
 fun LoadingView() {
-    CircularProgressIndicator(Modifier.size(48.dp))
+    LinearProgressIndicator(
+        modifier = Modifier
+            .height(16.dp)
+            .fillMaxWidth(),
+        color = colorResource(id = R.color.colorPrimary),
+        backgroundColor = colorResource(id = R.color.colorPrimaryDark)
+    )
 }
 
 @Preview(showBackground = true)

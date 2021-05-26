@@ -14,3 +14,9 @@ Libs de Compose + Detail + Main:
 
 8.7 MB
 
+Clean libs:
+
+6.5 MB
+
+APK release: 1.7 MB
+
