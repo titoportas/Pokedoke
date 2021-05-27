@@ -1,6 +1,6 @@
 APK inicial:
 
-5.9 MB
+Debug: 5.9 MB // minified: 2 MB
 
 Libs de Compose + Detail:
 
@@ -16,7 +16,5 @@ Libs de Compose + Detail + Main:
 
 Clean libs:
 
-6.5 MB
-
-APK release: 1.7 MB
+Debug: 6.5 MB // minified: 1.7 MB
 
