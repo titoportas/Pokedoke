@@ -5,11 +5,15 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
 import com.manu.pokedoke.R
+import com.manu.pokedoke.compose.PokemonStatView
 import com.manu.pokedoke.extensions.changeColor
 import com.manu.pokedoke.extensions.getTypeColor
 import com.manu.pokedoke.extensions.hide
@@ -71,17 +75,17 @@ class DetailActivity : AppCompatActivity() {
                     if(pokemonInfo.types.size == 1) {
                         type_name_one.show()
                         type_name_one.text = pokemonInfo.types[0].type.name
-                        type_name_one.setBackgroundColor(getColor(pokemonInfo.types[0].type.name.getTypeColor()))
+                        type_name_one.setBackgroundColor(ContextCompat.getColor(this, pokemonInfo.types[0].type.name.getTypeColor()))
 
                         type_name_two.hide()
                     }else {
                         type_name_one.show()
                         type_name_one.text = pokemonInfo.types[0].type.name
-                        type_name_one.setBackgroundColor(getColor(pokemonInfo.types[0].type.name.getTypeColor()))
+                        type_name_one.setBackgroundColor(ContextCompat.getColor(this, pokemonInfo.types[0].type.name.getTypeColor()))
 
                         type_name_two.show()
                         type_name_two.text = pokemonInfo.types[1].type.name
-                        type_name_two.setBackgroundColor(getColor(pokemonInfo.types[1].type.name.getTypeColor()))
+                        type_name_two.setBackgroundColor(ContextCompat.getColor(this, pokemonInfo.types[1].type.name.getTypeColor()))
                     }
                     height.text = pokemonInfo.getHeightString()
                     weight.text = pokemonInfo.getWeightString()
@@ -105,6 +109,48 @@ class DetailActivity : AppCompatActivity() {
                     progress_exp.labelText = pokemonInfo.getExpString()
                     progress_exp.max = PokemonInfo.maxExp.toFloat()
                     progress_exp.progress = pokemonInfo.getExp().toFloat()
+
+
+                    progress_hp_2?.setContent {
+                        PokemonStatView(
+                            name = stringResource(id = R.string.hp),
+                            stat = pokemonInfo.getHp(),
+                            maxStat = PokemonInfo.maxHp,
+                            color = colorResource(id = R.color.colorPrimary)
+                        )
+                    }
+                    progress_attack_2?.setContent {
+                        PokemonStatView(
+                            name = stringResource(id = R.string.atk),
+                            stat = pokemonInfo.getAttack(),
+                            maxStat = PokemonInfo.maxAttack,
+                            color = colorResource(id = R.color.md_orange_100)
+                        )
+                    }
+                    progress_defense_2?.setContent {
+                        PokemonStatView(
+                            name = stringResource(id = R.string.def),
+                            stat = pokemonInfo.getDefense(),
+                            maxStat = PokemonInfo.maxDefense,
+                            color = colorResource(id = R.color.md_green_200)
+                        )
+                    }
+                    progress_speed_2?.setContent {
+                        PokemonStatView(
+                            name = stringResource(id = R.string.spd),
+                            stat = pokemonInfo.getSpeed(),
+                            maxStat = PokemonInfo.maxSpeed,
+                            color = colorResource(id = R.color.md_blue_200)
+                        )
+                    }
+                    progress_exp_2?.setContent {
+                        PokemonStatView(
+                            name = stringResource(id = R.string.exp),
+                            stat = pokemonInfo.getExp(),
+                            maxStat = PokemonInfo.maxExp,
+                            color = colorResource(id = R.color.flying)
+                        )
+                    }
                 }
                 is Error -> {
                     detail_progress_bar.hide()
